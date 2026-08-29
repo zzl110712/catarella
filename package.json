@@ -1,0 +1,38 @@
+{
+  "name": "cantarella",
+  "version": "1.0.0",
+  "description": "批量压缩图片的命令行工具",
+  "type": "module",
+  "bin": {
+    "cantarella": "bin/cli.ts"
+  },
+  "scripts": {
+    "start": "node bin/cli.ts --help",
+    "typecheck": "tsc"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzl110712/AboutNode.git"
+  },
+  "author": "LeoZhao",
+  "license": "ISC",
+  "bugs": {
+    "url": "git+https://github.com/zzl110712/AboutNode/issues"
+  },
+  "homepage": "https://github.com/zzl110712/AboutNode#readme",
+  "devDependencies": {
+    "@types/node": "^26.3.0",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "chalk": "^6.0.0",
+    "commander": "^15.0.0",
+    "inquirer": "^14.2.0",
+    "ora": "^9.4.1",
+    "p-limit": "^7.3.1",
+    "sharp": "^0.35.4"
+  }
+}
