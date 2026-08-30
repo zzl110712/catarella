@@ -23,6 +23,10 @@
     "url": "git+https://github.com/zzl110712/AboutNode/issues"
   },
   "homepage": "https://github.com/zzl110712/AboutNode#readme",
+  "imports": {
+    "#config": "./config.ts",
+    "#lib/*": "./lib/*.ts"
+  },
   "devDependencies": {
     "@types/node": "^26.3.0",
     "typescript": "^7.0.2"
