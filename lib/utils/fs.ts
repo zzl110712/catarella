@@ -93,7 +93,7 @@ export async function backupFile(root: string, file: string): Promise<boolean> {
   await mkdir(path.dirname(dest), { recursive: true })
 
   try {
-    await copyFile(root, dest, constants.COPYFILE_EXCL)
+    await copyFile(file, dest, constants.COPYFILE_EXCL)
     return true
   } catch (err) {
     // Error EXISTs，文件/目录已存在
