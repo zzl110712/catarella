@@ -126,6 +126,14 @@ function applyOutputFormat(p: Sharp, format: OutputFormat, quality: number): Sha
   }
 }
 
+/**
+ * 压缩每一张图片
+ * @param file 图片路径
+ * @param params 压缩参数
+ * @param root 基准目录
+ * @param batch 本批所有待处理文件的绝对路径集合，用来检测"输出路径撞车"
+ * @returns 压缩后图片信息
+ */
 export async function compressOne(
   file: string,
   params: CompressParams,
@@ -159,6 +167,7 @@ export async function compressOne(
      * 扩展名虽不“聪明”，但它是用户眼里的事实，行为可预期。元数据只取它真正可靠的两个字段：width 和 hasAlpha。
      */
     const meta = await sharp(input).metadata()
+    // 在 compressImage.ts 142 行代码 => 会将 format 的类型收窄为 undefined
     const outputFormat: OutputFormat = 
       params.format ?? (
         isOutputFormat(inputFormat)

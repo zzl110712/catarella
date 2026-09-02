@@ -32,10 +32,9 @@
     "typescript": "^7.0.2"
   },
   "dependencies": {
+    "@clack/prompts": "^1.7.0",
     "chalk": "^6.0.0",
     "commander": "^15.0.0",
-    "inquirer": "^14.2.0",
-    "ora": "^9.4.1",
     "p-limit": "^7.3.1",
     "sharp": "^0.35.4"
   }
