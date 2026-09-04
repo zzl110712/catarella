@@ -1,0 +1,14 @@
+{
+  /* 发布构建：把 TS 源码编译到 dist/，npm 包只携带编译产物不携带源码 */
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": "dist",
+    /* 源码里的相对导入带 .ts 后缀（配合 Node 原生运行），
+       编译时重写为 .js；该选项同时解除 allowImportingTsExtensions 的 noEmit 限制 */
+    "rewriteRelativeImportExtensions": true,
+
+    /* 发布产物不携带源码注释（shebang 不受影响，会被保留） */
+    "removeComments": true
+  }
+}

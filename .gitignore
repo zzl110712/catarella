@@ -1,6 +1,9 @@
 # 依赖
 node_modules/
 
+# 编译产物（npm 包发布 dist/，不入库）
+dist/
+
 # 本地教程与笔记（不上传）
 docs/
 

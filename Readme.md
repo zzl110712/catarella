@@ -6,7 +6,7 @@
 
 传入一个文件夹或单张图片，自动压缩覆盖，覆盖前把原图备份到 `.backup/` 目录。
 
-[![Node.js](https://img.shields.io/badge/node-%E2%89%A522.18-brightgreen)](https://nodejs.org/)
+[![Node.js](https://img.shields.io/badge/node-%E2%89%A522.12-brightgreen)](https://nodejs.org/)
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](./LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-zero--build-3178C6)](https://www.typescriptlang.org/)
 
@@ -22,7 +22,7 @@
 - **`--report` 报告**：在目标目录生成 markdown 压缩报告
 - **格式转换**：jpeg / png / webp / avif / tiff / gif 互转，支持 heic（iPhone 照片）与 svg 输入
 - **并发压缩**：基于 libuv 线程池的 4 路并发 + p-limit 控制
-- **零构建**：Node.js 原生运行 TypeScript，无需编译步骤
+- **发布纯 JS**：npm 包只含编译后的 JS，不携带 TS 源码；开发时 Node 原生跑 TS，零构建
 
 ## 📦 安装
 
@@ -35,10 +35,11 @@ npm install -g cantarella
 ```bash
 git clone https://github.com/zzl110712/cantarella.git
 pnpm install
+pnpm build        # 编译 TS 到 dist/（bin 入口指向编译产物）
 npm link          # 注册全局命令 cantarella
 ```
 
-> 要求 Node.js ≥ 22.18.0（依赖原生 TypeScript 类型剥离，无需构建）
+> 要求 Node.js ≥ 22.12.0（npm 包为编译后的纯 JS，无需构建）
 
 ## 🚀 用法
 
@@ -101,8 +102,9 @@ cantarella compress ./images -f webp  # 照片类收益最大
 
 ```bash
 pnpm install        # 安装依赖
-pnpm typecheck      # tsc 类型检查（本项目零构建：Node 22+ 直接运行 .ts）
-pnpm start          # node bin/cli.ts --help
+pnpm typecheck      # tsc 类型检查
+pnpm start          # 直接运行 TS 源码（--conditions=development，无需编译）
+pnpm build          # 编译并压缩到 dist/（发布、npm link 前需要）
 ```
 
 ## 📜 版本记录

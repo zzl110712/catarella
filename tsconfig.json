@@ -7,6 +7,10 @@
     "moduleResolution": "nodenext",
     "types": ["node"],
 
+    /* 子路径导入 #config / #lib/* 带 development 条件（指向 .ts 源码），
+       类型检查走 development 分支；编译产物的运行走 default 分支（dist/*.js） */
+    "customConditions": ["development"],
+
     /* 只做类型检查，不产出 .js（由 Node 直接执行源码） */
     "noEmit": true,
     "allowImportingTsExtensions": true,

@@ -1,0 +1,4 @@
+# pnpm 项目级设置（原先放在 package.json 的 pnpm 字段，已迁移至此）
+# 允许 esbuild 运行安装脚本（其余依赖默认仍禁止）
+allowBuilds:
+  esbuild: true
