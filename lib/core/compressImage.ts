@@ -4,8 +4,8 @@ import { randomUUID } from 'crypto'
 import { readFile, rename, unlink, writeFile } from 'fs/promises'
 import { backupFile, replaceExt } from '#lib/utils/fs'
 
-// 工具支持输出格式
-const OUTPUT_FORMATS = ['jpeg', 'png', 'webp', 'avif', 'tiff', 'gif'] as const
+// 工具支持输出格式（单一数据源：CLI 的 --format 白名单和交互问答的可选值都从这派生）
+export const OUTPUT_FORMATS = ['jpeg', 'png', 'webp', 'avif', 'tiff', 'gif'] as const
 export type OutputFormat = (typeof OUTPUT_FORMATS)[number]
 
 // 只能作为输入的格式

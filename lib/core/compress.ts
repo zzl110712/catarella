@@ -11,7 +11,7 @@ import {
   resolveRoot,
 } from "#lib/utils/fs";
 import { accent } from "#lib/utils/theme";
-import { compressOne, type CompressParams, type OutputFormat } from "./compressImage.ts";
+import { compressOne, OUTPUT_FORMATS, type CompressParams, type OutputFormat } from "./compressImage.ts";
 import { buildReport, writeReport, type RunInfo } from "./report.ts";
 import config from "#config";
 
@@ -39,6 +39,13 @@ interface Answers {
   report?: boolean;
 }
 
+/**
+ * 命令行执行函数
+ * @param target 可选的目标路径；undefined 时改用 process.cwd() 并进入交互问答
+ * @param options 命令行选项对象；交互模式下问答的答案会写回这个对象
+ * @param command 当前这条子命令的 Command 实例；用于 getOptionValueSource 查选项值来源
+ * @returns 
+ */
 export const compress = async (
   target: string | undefined,
   options: CompressOptions,
@@ -84,12 +91,8 @@ export const compress = async (
                 label: '保持原格式',
                 hint: 'heic => jpeg, svg => png 自动转换',
               },
-              { value: "jpeg", label: "jpeg" },
-              { value: "png", label: "png" },
-              { value: "webp", label: "webp" },
-              { value: "avif", label: "avif" },
-              { value: "gif", label: "gif" },
-              { value: "tiff", label: "tiff" },
+              // 格式清单从 OUTPUT_FORMATS 派生，与 CLI 的 --format 白名单共用一份
+              ...OUTPUT_FORMATS.map(f => ({ value: f, label: f })),
             ]
           })
       }),
