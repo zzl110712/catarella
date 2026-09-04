@@ -15,14 +15,32 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zzl110712/AboutNode.git"
+    "url": "git+https://github.com/zzl110712/cantarella.git"
   },
   "author": "LeoZhao",
   "license": "ISC",
   "bugs": {
-    "url": "git+https://github.com/zzl110712/AboutNode/issues"
+    "url": "https://github.com/zzl110712/cantarella/issues"
   },
-  "homepage": "https://github.com/zzl110712/AboutNode#readme",
+  "homepage": "https://github.com/zzl110712/cantarella#readme",
+  "keywords": [
+    "image",
+    "compress",
+    "compression",
+    "cli",
+    "sharp",
+    "webp",
+    "avif",
+    "jpeg",
+    "png",
+    "batch",
+    "image-optimization"
+  ],
+  "files": [
+    "bin",
+    "lib",
+    "config.ts"
+  ],
   "imports": {
     "#config": "./config.ts",
     "#lib/*": "./lib/*.ts"

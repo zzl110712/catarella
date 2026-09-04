@@ -27,8 +27,13 @@
 ## 📦 安装
 
 ```bash
-git clone https://github.com/zzl110712/catarella.git
-cd catarella
+npm install -g cantarella
+```
+
+或从源码运行：
+
+```bash
+git clone https://github.com/zzl110712/cantarella.git
 pnpm install
 npm link          # 注册全局命令 cantarella
 ```
