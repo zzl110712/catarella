@@ -74,6 +74,9 @@ export const compress = async (
             placeholder: '80',
             defaultValue: '80',
             validate: v => {
+              // clack 的顺序是"先 validate 原始输入，后 finalize 补 defaultValue"——
+              // 空输入必须在这里放行（返回 undefined），'80' 才有机会在 finalize 阶段生效
+              if (v === undefined || v.trim() === '') return
               const n = Number(v)
               if (!Number.isInteger(n) || n < 1 || n > 100) {
                 return '请输入 1 - 100 范围内的整数'
@@ -103,6 +106,8 @@ export const compress = async (
             placeholder: '0',
             defaultValue: '0',
             validate: v => {
+              // 同上：放行空输入，让 defaultValue '0'（= 不缩放）在 finalize 生效
+              if (v === undefined || v.trim() === '') return
               const n = Number(v)
               if (!Number.isInteger(n) || n < 0) {
                 return '请输入不小于 0 的整数'
