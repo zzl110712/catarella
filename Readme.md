@@ -27,8 +27,8 @@
 ## 📦 安装
 
 ```bash
-git clone https://github.com/zzl110712/AboutNode.git
-cd AboutNode
+git clone https://github.com/zzl110712/catarella.git
+cd catarella
 pnpm install
 npm link          # 注册全局命令 cantarella
 ```
